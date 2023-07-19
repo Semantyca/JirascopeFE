@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 start_app.sh
+/.vscode/
