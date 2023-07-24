@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map, Subscription} from 'rxjs';
 
@@ -9,16 +9,14 @@ import {map, Subscription} from 'rxjs';
 })
 
 
-export class AppComponent{
+export class AppComponent implements OnInit, OnDestroy{
   appName = 'JirascopeFE';
   info: any = null;
   appsList: any = [];
   private subscriptions = new Subscription();
   constructor(
     private http: HttpClient
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(){
     this.subscriptions.add(
@@ -58,6 +56,10 @@ export class AppComponent{
       }))
     )
   };
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
 
 
 }
