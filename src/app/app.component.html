@@ -311,6 +311,9 @@
   />
   <span>{{ appName }} </span>
   <span *ngIf="info">&nbsp; v. {{ info.version}}</span>
+  <div style="display: flex; justify-content: flex-end; width: 85%">
+    <button mat-raised-button (click)="fakeAuth()">auth with jwt</button>
+  </div>
 </div>
 
 <div class="content" role="main">
